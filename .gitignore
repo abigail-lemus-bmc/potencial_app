@@ -1,0 +1,6 @@
+captura.png
+tools/_*.png
+tools/captura.png
+node_modules/
+.DS_Store
+Thumbs.db

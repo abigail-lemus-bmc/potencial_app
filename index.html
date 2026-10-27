@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08110f">
+<meta name="description" content="Resuelve problemas de potencial eléctrico paso a paso, con validación de datos y gráfica interactiva.">
+<title>Potencial eléctrico · Física II</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/spectral-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<header class="barra">
+  <div class="barra__marca">
+    <span class="barra__punto" aria-hidden="true"></span>
+    <span class="barra__texto">Potencial eléctrico</span>
+  </div>
+  <button type="button" id="btn-importar" class="boton boton--fantasma">Importar</button>
+</header>
+
+<nav id="tabs" class="tabs" aria-label="Tipo de problema"></nav>
+
+<main class="lienzo">
+
+  <section class="intro" aria-labelledby="titulo">
+    <h1 id="titulo" class="intro__titulo"></h1>
+    <p id="resumen" class="intro__resumen"></p>
+  </section>
+
+  <form id="form" class="tarjeta tarjeta--entrada" autocomplete="off" novalidate>
+    <div id="campos" class="campos"></div>
+  </form>
+
+  <p id="estado" class="estado" role="status" hidden></p>
+
+  <div id="salida" class="salida"></div>
+
+  <footer class="pie">
+    <p>Universidad Mariano Gálvez de Guatemala · Física II · Ing. Estela Xiloj</p>
+    <p class="pie__nota">Los resultados se calculan con k = 8.99 × 10⁹ N·m²/C², igual que en la guía de clase.</p>
+  </footer>
+
+</main>
+
+<!-- Hoja de importación: foto, texto o voz -->
+<div id="hoja" class="hoja" hidden>
+  <div class="hoja__panel" role="dialog" aria-modal="true" aria-labelledby="hoja-titulo">
+    <header class="hoja__head">
+      <h2 id="hoja-titulo">Importar enunciado</h2>
+      <button type="button" class="boton boton--icono" data-cerrar aria-label="Cerrar">Cerrar</button>
+    </header>
+
+    <p class="hoja__sub">Pega el texto del ejercicio, dictalo o toma una foto. La app propone los valores; tú los confirmas.</p>
+
+    <textarea id="hoja-texto" class="hoja__texto" rows="4"
+      placeholder="Escribe aquí el enunciado completo, con sus unidades."></textarea>
+
+    <div class="hoja__acciones">
+      <button type="button" id="btn-analizar" class="boton boton--lleno">Detectar datos</button>
+      <button type="button" id="btn-voz" class="boton">Dictar</button>
+      <label class="boton boton--file">
+        Foto
+        <input id="foto" type="file" accept="image/*" capture="environment" hidden>
+      </label>
+    </div>
+
+    <img id="foto-vista" class="hoja__foto" alt="Vista previa del enunciado" hidden>
+
+    <p id="hoja-estado" class="hoja__estado" role="status"></p>
+    <div id="hoja-resultado" class="hoja__resultado"></div>
+  </div>
+</div>
+
+<script src="assets/js/core/num.js"></script>
+<script src="assets/js/core/math.js"></script>
+<script src="assets/js/core/validate.js"></script>
+<script src="assets/js/core/plot.js"></script>
+<script src="assets/js/core/diagram.js"></script>
+<script src="assets/js/problems/puntual.js"></script>
+<script src="assets/js/problems/superposicion.js"></script>
+<script src="assets/js/problems/anillo.js"></script>
+<script src="assets/js/problems/arco.js"></script>
+<script src="assets/js/problems/varilla-eje.js"></script>
+<script src="assets/js/problems/varilla-mediatriz.js"></script>
+<script src="assets/js/problems/disco.js"></script>
+<script src="assets/js/problems/dipolo.js"></script>
+<script src="assets/js/problems/diferencia.js"></script>
+<script src="assets/js/problems/energia.js"></script>
+<script src="assets/js/problems/trabajo.js"></script>
+<script src="assets/js/problems/linea.js"></script>
+<script src="assets/js/problems/esfera.js"></script>
+<script src="assets/js/problems/corteza.js"></script>
+<script src="assets/js/problems/placas.js"></script>
+<script src="assets/js/problems/gradiente.js"></script>
+<script src="assets/js/problems/equipotenciales.js"></script>
+<script src="assets/js/diagrams/esquemas.js"></script>
+<script src="assets/js/ui/import.js"></script>
+<script src="assets/js/core/fonts.js"></script>
+<script src="assets/js/core/export.js"></script>
+<script src="assets/js/ui/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    });
+  }
+</script>
+</body>
+</html>
