@@ -103,7 +103,9 @@ async function main() {
     }, sessionId);
 
     const url = process.env.URL
-      ? 'file:///' + process.env.URL.replace(/\\/g, '/')
+      ? (/^https?:/i.test(process.env.URL)
+        ? process.env.URL
+        : 'file:///' + process.env.URL.replace(/\\/g, '/'))
       : 'file:///' + path.join(__dirname, '..', 'index.html').replace(/\\/g, '/');
     await enviar('Page.navigate', { url }, sessionId);
     await dormir(1200);
@@ -111,7 +113,7 @@ async function main() {
     const guion = `
       (function () {
         var chip = document.querySelector('.chip[data-id="${problema}"]');
-        if (chip) chip.click();
+        if (chip) { chip.click(); if (chip.scrollIntoView) chip.scrollIntoView({ block: 'nearest', inline: 'center' }); }
         var datos = ${process.env.EMPTY ? '{}' : JSON.stringify(DATOS[problema] || {})};
         Object.keys(datos).forEach(function (k) {
           var el = document.getElementById('f-' + k);

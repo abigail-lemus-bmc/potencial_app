@@ -90,18 +90,6 @@
       b.setAttribute('aria-pressed', b.dataset.id === id ? 'true' : 'false');
     });
 
-    // La fila de problemas se desplaza en horizontal: centrar el elegido
-    // sin mover la página.
-    var activo = els.tabs.querySelector('.chip[aria-pressed="true"]');
-    if (activo && activo.parentNode) {
-      var fila = activo.parentNode;
-      var r = activo.getBoundingClientRect();
-      var f = fila.getBoundingClientRect();
-      if (fila.scrollWidth > fila.clientWidth) {
-        fila.scrollLeft += (r.left - f.left) - (f.width - r.width) / 2;
-      }
-    }
-
     els.titulo.textContent = actual.nombre;
     els.resumen.textContent = actual.resumen;
     document.title = actual.nombre + ' · Potencial eléctrico';

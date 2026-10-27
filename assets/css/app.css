@@ -204,11 +204,6 @@ button, input, textarea { font: inherit; color: inherit; }
 
 .tabs__grupo {
   flex: none;
-  position: sticky;
-  left: 0;
-  z-index: 1;
-  padding-right: 10px;
-  background: var(--bg);
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.16em;
