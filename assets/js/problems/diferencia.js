@@ -115,7 +115,7 @@
         series: [{ points: puntos, color: 'var(--teal)' }],
         markers: [
           { x: rA, y: VA, label: 'A', dy: -10 },
-          { x: rB, y: VB, label: 'B', dy: -10 }
+          { x: rB, y: VB, label: 'B', dy: -10, cls: 'p-dot' }
         ]
       },
       cierre: 'V_A = ' + N.format(VA, 3) + ' V y V_B = ' + N.format(VB, 3) + ' V; la diferencia es ' + N.format(delta, 3) + ' V.'

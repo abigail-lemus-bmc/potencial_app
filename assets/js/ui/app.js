@@ -351,7 +351,7 @@
     var tabla = document.createElement('table');
     tabla.className = 'datos';
     var thead = document.createElement('thead');
-    thead.innerHTML = '<tr><th>Magnitud</th><th>Valor</th><th>En unidades del SI</th></tr>';
+    thead.innerHTML = '<tr><th>Magnitud</th><th>Valor</th><th>En SI</th></tr>';
     tabla.appendChild(thead);
 
     var tbody = document.createElement('tbody');

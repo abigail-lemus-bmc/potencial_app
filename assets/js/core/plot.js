@@ -178,7 +178,7 @@
         var px = sx(m.x), py = sy(m.y);
         svg.appendChild(el('circle', {
           cx: px, cy: py, r: i === 0 ? 5.5 : 4.5,
-          class: 'p-dot' + (i === 0 ? '' : ' p-dot--alt')
+          class: m.cls || ('p-dot' + (i === 0 ? '' : ' p-dot--alt'))
         }));
         if (m.label) {
           svg.appendChild(el('text', {
