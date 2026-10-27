@@ -108,7 +108,7 @@ async function main() {
         : 'file:///' + process.env.URL.replace(/\\/g, '/'))
       : 'file:///' + path.join(__dirname, '..', 'index.html').replace(/\\/g, '/');
     await enviar('Page.navigate', { url }, sessionId);
-    await dormir(1200);
+    await dormir(2000);
 
     const guion = `
       (function () {

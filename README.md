@@ -232,6 +232,8 @@ resto del flujo es el mismo.
 
 ## Publicación
 
+La app está publicada en **https://abigail-lemus-bmc.github.io/potencial_app/**
+
 El proyecto es estático: cualquier servidor de archivos sirve. Para GitHub Pages basta con
 subir el contenido de esta carpeta a la rama principal y activar Pages en la raíz.
 
